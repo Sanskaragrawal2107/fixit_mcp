@@ -1,22 +1,22 @@
 import logging
 import sys
-from typing import Optional
 from mcp.server.fastmcp import FastMCP
 import httpx
 
-# Configure logging for production
+# Configure logging for production - stderr only for MCP servers
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    stream=sys.stderr  # Use stderr for MCP server logging
+    stream=sys.stderr,  # Critical: MCP servers must use stderr for logs
+    handlers=[logging.StreamHandler(sys.stderr)]
 )
 logger = logging.getLogger(__name__)
 
-# Initialize FastMCP server
+# Initialize FastMCP server in stdio mode
 mcp = FastMCP(
     name="Fix-OS",
     dependencies=["httpx"],
-    on_duplicate_resources="error"  # Official best practice from docs
+    on_duplicate_resources="error"
 )
 
 # iFixit Constants
