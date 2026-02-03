@@ -1,0 +1,21 @@
+{
+  "$schema": "https://gofastmcp.com/public/schemas/fastmcp.json/v1.json",
+  "source": {
+    "path": "main.py",
+    "entrypoint": "mcp"
+  },
+  "environment": {
+    "python": "3.11",
+    "requirements": "pyproject.toml",
+    "project": "."
+  },
+  "deployment": {
+    "transport": "stdio",
+    "log_level": "INFO",
+    "env": {
+      "ENV": "production",
+      "DEBUG": "false",
+      "PYTHONUNBUFFERED": "1"
+    }
+  }
+}
