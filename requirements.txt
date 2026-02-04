@@ -2,3 +2,4 @@ fastmcp>=2.14.5
 httpx>=0.28.1
 mcp[cli]>=1.26.0
 websockets>=13.0
+aiosqlite>=0.20.0

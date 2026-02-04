@@ -1,6 +1,6 @@
 import logging
 import sys
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 import httpx
 
 # Configure logging for production - stderr only for MCP servers
@@ -8,7 +8,6 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     stream=sys.stderr,  # Critical: MCP servers must use stderr for logs
-    handlers=[logging.StreamHandler(sys.stderr)]
 )
 logger = logging.getLogger(__name__)
 
