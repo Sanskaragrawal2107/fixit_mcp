@@ -10,7 +10,7 @@
     "project": "."
   },
   "deployment": {
-    "transport": "stdio",
+    "transport": "http",
     "log_level": "INFO",
     "env": {
       "ENV": "production",

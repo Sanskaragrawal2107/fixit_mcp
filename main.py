@@ -11,10 +11,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Initialize FastMCP server in stdio mode
+# Initialize FastMCP server
 mcp = FastMCP(
     name="Fix-OS",
-    dependencies=["httpx"],
     on_duplicate_resources="error"
 )
 
@@ -153,7 +152,8 @@ def main():
     """Main entry point for the FastMCP server."""
     logger.info("Starting Fix-OS MCP server")
     logger.info("Available tools: search_device_manual, get_repair_steps")
-    mcp.run()
+    # Transport configuration (stdio is default, http used for production endpoints)
+    mcp.run(transport="http", host="0.0.0.0", port=8000)
 
 
 if __name__ == "__main__":
